@@ -1,0 +1,151 @@
+/*late String bookName;
+
+void main()
+  bookName = makeBookName();
+ //bookName = null;
+ //if(bookName != null)
+  print(bookName.length);// -------출력 : 7
+ //print(bookName!.length);// -------출력 : 7
+  
+}
+
+String makeBookName(){
+  return '핸즈온 플러터';
+}
+final String youtuber = '개발하는 남자';
+const String nikname = '개남';
+
+void main(){
+  /*값 변환을 막아줌=final const*/ String name = '아무개';
+  name = '홍길동';
+  print(name);
+}
+void main(){
+  int maxInt = 9223372036857758;
+  
+  print(maxInt);
+}
+void main(){
+  var value = -312.5;
+  print(value);
+}
+void main(){
+  int c = 1;
+  double d = c.toDouble();
+  print(d);
+  
+  double a = 1.5;
+  int b = a.toInt();
+  print(b);
+}
+void main(){
+  var a ='a 변수에 문자를 넣습니다. 문자열에는 작은 따옴표를 사용해도 됩니다.';
+  var b ="b 변수에 문자를 넣습니다. 문자열에는 큰 따옴표를 사용해도 됩니다.";
+  var nextLine = '다음 줄 표현은 \n으로 표현하여 사용합니다.';
+  
+  print(a);
+  print(b);
+  
+  print (nextLine);
+  var c = '개발' + 
+          '하는남자' +
+    '핸즈온 플러터';
+  var d = '개발' + '하는남자' + '유튜브';
+  var multiLine1 = '''
+  여러 줄
+  표현은
+  3중 작은 따옴표
+  를 사용하면 됩니다.
+  ''';
+  var multiLine2 = """
+  3중 작은따옴표도
+  가능합니다
+  """;
+  print (c);
+  print (d);
+  print(multiLine1);
+  print(multiLine2);
+  }
+void main(){
+  var trueValue = true;
+  var falseValue = false;
+  
+  print(trueValue);
+  print(falseValue);
+  
+  print(trueValue&falseValue);
+  print(trueValue | falseValue);
+  print(!trueValue);
+}
+void main(){
+  var fixedList = List<int>.filled(3,2);
+  print(fixedList);
+  
+  fixedList[0] = 20;
+  print(fixedList);
+  fixedList.add(50);
+  fixedList.remove(20);
+}
+void main(){
+  var variableList1 = <int>[1,2,3];
+  print(variableList1);
+    print(variableList1.runtimeType);
+  
+  var variableList2 = [1,2,3];
+  print(variableList2);
+  print(variableList2.runtimeType);
+  
+  var variableList3 = [1.2,2.2,3.0];
+  print(variableList3.runtimeType);
+}
+void main(){
+  var variableList3 = List.empty(growable:false);
+  print(variableList3.runtimeType);
+  
+  variableList3.add(10);
+  variableList3.add(3.141592);
+  print(variableList3);
+}
+void main(){
+  var variableList2 = [1,2,true];
+  print(variableList2.runtimeType);
+  variableList2.add(10);
+  variableList2.add('문자 추가');
+  variableList2.add(true);
+  print(variableList2);
+}
+void main(){
+  var valueList = List.generate(100,(index) => 'sample$index'); //람다함수 왼쪽 인자 인풋 우측 아웃풋
+  print(valueList);
+}
+void main() {
+  dynamic isString ='문자';
+  var sampleList=[1,3,5, if(isString is !String)isString,9,12];
+  print(sampleList);
+  
+  isString = 7;
+  sampleList=[1,3,5, if(isString is !String)isString,9,12];
+  print(sampleList);
+}
+void main(){
+  var listOne = [1,2,3];
+  var listTwo = ['one','two','three'];
+  //var margeList = [...listOne,...listTwo];//...은 리스트 전체 및 리스트 결합
+  var margeList = [...listOne,4,5,6];
+  print(margeList);
+}
+void main() {
+  var odd=[1,3,5,7,9,11,13,15,17];
+  print(odd);
+  
+  var even = [2,6,12];
+  even.insert(1,4);
+  print(even);
+  even.insertAll(3,[8,10]);
+  print(even);
+}
+void main(){
+  var nums = [1,2,3,4,5,6,7,8,9,10];
+  nums.removeWhere((index) => index % 2 == 0);
+  print(nums);
+}*/

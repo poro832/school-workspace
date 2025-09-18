@@ -1,0 +1,137 @@
+#2장 연습문제3 , 3개의 숫자를 받아 평균값을 출력하는 프로그램
+#3개의 숫자 입력받기
+x = int(input("첫 번째 숫자를 입력하시오 : "))
+y = int(input("두 번째 숫자를 입력하시오 : "))
+z = int(input("세 번째 숫자를 입력하시오: "))
+#평균을 구하기위한 합 구하기
+hap = x+y+z
+#합 출력문
+print(x, y, z ,"의 합은 ",hap,"입니다.")
+#평균 구하기 식
+avg = float(hap/3)
+#평균 출력문
+print(x, y, z ,"의 평균은 ",avg,"입니다.")
+#2장 연습문제 5번 반지름 초기값 50을 radius 저장 후 20씩 증가하는 원 그리기
+import turtle as t
+t.shape("turtle")
+#변수 선언
+radius = 50
+t.up()
+t.goto(0,0)
+t.down()
+t.circle(radius)
+#변수 재선언
+radius= radius + 20
+#원 좌표변경
+t.up()
+t.goto(100,0)
+t.down()
+t.circle(radius)
+#변수 재선언
+radius= radius + 20
+#원 좌표변경
+t.up()
+t.goto(200,0)
+t.down()
+t.circle(radius)
+#3장 자판기 예제
+#변수 선언 및 잔돈계산
+money = int(input("투입한 돈: "))
+price = int(input("물건값: "))
+change = money - price
+#동전 개수 계산
+change500 = change//500
+change= change % 500
+change100 = change//100
+change = change % 100
+change50 = change //50
+change = change % 50
+change10 = change//10
+#출력문
+print("500원 동전의 개수 : ",change500)
+print("100원 동전의 개수 : ",change100)
+print("50원 동전의 개수 : ",change50)
+print("10원 동전의 개수 : ",change10)
+import turtle as t
+t.shape("turtle")
+# 1. 자동차 몸체 그리기
+# 몸체의 가로(weight), 세로(lenght), 색(color) 입력받기
+weight = int(input("자동차 몸체의 가로 크기를 입력하시오: "))
+length = int(input("자동차 몸체의 세로 크기를 입력하시오: ")) # lenght는 의 오타일 수 있으나 요청대로 사용
+color = input("자동차 몸체의 색을 입력하시오: ")
+# 몸체의 크기 값을 다른 변수에 저장해두기 
+body_weight = weight
+body_length = length
+# 그리기 시작
+t.up()
+t.goto(-weight / 2, -length/ 2)
+t.down()
+t.color(color)
+t.fillcolor(color)
+t.begin_fill()
+t.forward(weight)
+t.left(90)
+t.forward(length)
+t.left(90)
+t.forward(weight)
+t.left(90)
+t.forward(length)
+t.left(90)
+t.end_fill()
+# 2. 자동차 지붕 그리기
+# 지붕의 가로(weight), 세로(lenght), 색(color)을 새로 입력받음
+weight = int(input("자동차 지붕의 가로 크기를 입력하시오: "))
+lenght = int(input("자동차 지붕의 세로 크기를 입력하시오: "))
+color = input("자동차 지붕의 색을 입력하시오: ")
+# 그리기 시작 (위치는 아까 저장해둔 몸체 크기 값으로 계산)
+t.up()
+t.goto(-weight / 2, body_length / 2) # 지붕의 weight와 몸체의 lenght 사용
+t.down()
+t.color(color)
+t.fillcolor(color)
+t.begin_fill()
+t.forward(weight)
+t.left(90)
+t.forward(length)
+t.left(90)
+t.forward(weight)
+t.left(90)
+t.forward(length)
+t.left(90)
+t.end_fill()
+# 3. 자동차 바퀴 그리기
+# 바퀴의 반지름, 색을 입력받음
+circle = int(input("자동차 바퀴의 반지름을 입력하시오: "))
+color = input("자동차 바퀴의 색을 입력하시오: ")
+# 왼쪽 바퀴 그리기 (위치는 아까 저장해둔 몸체 크기 값으로 계산)
+t.up()
+t.goto(-body_weight / 4, -body_length / 2)
+t.down()
+t.color(color)
+t.fillcolor(color)
+t.begin_fill()
+t.circle(circle)
+t.end_fill()
+
+# 오른쪽 바퀴 그리기
+t.up()
+t.goto(body_weight / 4, -body_length / 2)
+t.down()
+t.color(color) # 위에서 입력받은 바퀴 색을 그대로 사용
+t.fillcolor(color)
+t.begin_fill()
+t.circle(circle)
+t.end_fill()
+
+'''3장 개별실습
+1. 사용자에게 초값을 입력받음
+2. 이 초값을 시간 분 초로 변환
+3. 결과값 출력'''
+# 초값을 입력 받기
+sec = int(input("초값을 입력해주세요 : "))
+#초값을 시간 분 초 변환하기
+time = sec//3600
+min = (sec%3600)//60
+remainder = sec%60
+#결과값 출력
+print(sec,"초 는",time,"시 ",min,"분 ",remainder,"초 입니다.")

@@ -1,0 +1,116 @@
+/* 페이지 전체를 정렬하기 위한 스타일 */
+body {
+  display: flex;
+  justify-content: center; /* 가로 중앙 */
+  align-items: center; /* 세로 중앙 */
+  min-height: 100vh; /* 최소 높이를 화면 전체로 설정 */
+  margin: 0;
+  background-color: #f0f2f5; /* 배경색 */
+  font-family: 'Helvetica Neue', sans-serif;
+}
+
+/* 중앙에 위치할 네모 박스 (로그인 카드) */
+.login-box {
+  background: white;
+  padding: 40px;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  width: 100%;
+  max-width: 360px; /* 박스의 최대 너비 설정 */
+  box-sizing: border-box;
+  text-align: center;
+}
+
+.login-box h2 {
+  margin: 0 0 25px 0;
+  color: #333;
+}
+
+/* 입력창 그룹 */
+.input-group {
+  margin-bottom: 15px;
+}
+
+.input-group input {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  box-sizing: border-box;
+}
+
+.input-group input:focus {
+  outline: none;
+  border-color: #007bff;
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+
+/* 로그인 버튼 */
+.login-btn {
+  width: 100%;
+  padding: 12px;
+  border: none;
+  border-radius: 5px;
+  background-color: #007bff;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.login-btn:hover {
+  background-color: #0056b3;
+}
+
+/* 구분선 */
+.separator {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  color: #aaa;
+  margin: 25px 0;
+}
+
+.separator::before,
+.separator::after {
+  content: '';
+  flex: 1;
+  border-bottom: 1px solid #ddd;
+}
+.separator:not(:empty)::before { margin-right: .25em; }
+.separator:not(:empty)::after { margin-left: .25em; }
+
+/* 소셜 로그인 버튼 */
+.social-login {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.social-btn {
+  width: 100%;
+  padding: 10px;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 15px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: opacity 0.3s;
+  border: none;
+}
+
+.social-btn:hover { opacity: 0.9; }
+.social-btn svg { margin-right: 10px; }
+
+.google-btn {
+  background-color: #ffffff;
+  color: #444;
+  border: 1px solid #ddd;
+}
+
+.kakao-btn {
+  background-color: #FEE500;
+  color: #191919;
+}

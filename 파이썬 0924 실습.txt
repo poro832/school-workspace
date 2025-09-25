@@ -1,0 +1,57 @@
+파이썬 0924 실습
+f 문자열
+product = "coffee"
+count = 3
+price = 10000
+print(f"상품 {product} {count}개의 가격은{count*price}원입니다.")
+print("상품 " + str(product) + str(count)+"개의 가격은" + str(count *price)+"원입니다.")
+
+tts
+from gtts import gTTS
+import os
+
+text = "배가 고파요. 식단 그만하고 싶어요"
+
+tts = gTTS(text=text,lang='ko')
+tts.save("ttt.mp3")
+os.system("ttt.mp3")
+
+랜덤 산수 퀴즈
+#랜덤모듈로 1부터 9까지의 수를 2개 뽑은 뒤 2개의 더한 값이 사용자에게 물어본 뒤 그 값이 맞는지 보여준다.
+import random as r
+print("산수 퀴즈에 오신 걸 환영합니다.\n")
+#랜덤 숫자
+n1 =r.randint(1,9)
+n2 = r.randint(1,9)
+dap = n1 + n2
+#정답 받기
+num = int(input("랜덤 첫번째 수 : " + str(n1) + " , 랜덤 두번째 수 : " + str(n2) + " , 두 수의 합은? "))
+#결과 확인
+print("결과 :" , dap ==num)
+
+연습문제 11번 시간
+import time
+#1970년 이후 흘러온 초가 실수로 반환
+fsecond = time.time()
+total_sec = int(fsecond)        #정수로 변환
+#현재 몇분인지 계산
+total_min = total_sec //60
+mintue = total_min %60
+#현재 몇시인지 계산
+total_hour = total_min //60
+hour = total_hour % 24
+
+print("현재 시간(영국 그리니치 시각): ",hour, "시" , mintue , "분")
+
+정수 입력문
+#사용자에게 2개의 정수를 입력받아 사칙연산 결과를 보여주는 코드
+x = int(input("첫 번째 정수를 입력해주세요 : "))
+y = int(input("두 번째 정수를 입력해주세요 : "))
+print("첫 번째 정수 : " , x)
+print("두 번째 정수 : " , y)
+print(x ,"+",y," =" ,x+y)
+print(x ,"-",y ,"=" ,x-y)
+print(x ,"*",y," =" ,x*y)
+print(x ,"/",y ,"=" ,x/y)
+print(x ,"//",y," =" ,x//y)
+print(x ,"%",y ,"=" ,x%y)

@@ -1,0 +1,111 @@
+#3장 자판기 예제
+#변수 선언 및 잔돈계산
+money = int(input("투입한 돈: "))
+price = int(input("물건값: "))
+change = money - price
+#동전 개수 계산
+change500 = change//500
+change= change % 500
+change100 = change//100
+change = change % 100
+change50 = change //50
+change = change % 50
+change10 = change//10
+#출력문
+print("500원 동전의 개수 : ",change500)
+print("100원 동전의 개수 : ",change100)
+print("50원 동전의 개수 : ",change50)
+print("10원 동전의 개수 : ",change10)
+
+import time
+#1970년 이후 흘러온 초가 실수로 반환
+fsecond = time.time()
+total_sec = int(fsecond)        #정수로 변환
+#현재 몇분인지 계산
+total_min = total_sec //60
+mintue = total_min %60
+#현재 몇시인지 계산
+total_hour = total_min //60
+hour = total_hour % 24
+
+print("현재 시간(영국 그리니치 시각): ",hour, "시" , mintue , "분")
+
+#4자리 정수 입력받기
+num = int(input("4자리 정수를 입력하세요 : "))
+#천의 자리 구하기
+thousand = num // 1000
+#백의 자리 구하기
+hundred = (num % 1000) // 100 
+#십의 자리 구하기
+ten = (num % 100) // 10
+# 일의 자리 구하기
+one = num% 10  
+# 모든 자리 숫자 합산
+sum_num = thousand + hundred + ten + one
+# 결과 출력
+print("자리수의 합 :", sum_num)
+
+# 두개의 정수 입력 받기
+x = int(input("첫 번째 정수를 입력하세요 : "))
+y = int(input("두 번째 정수를 입력하세요 : "))
+
+# 입력받은 두 수 출력.
+print(f"x: {x}")
+print(f"y: {y}")
+
+#계산 후 출력.
+print(f"두수의 합: {x + y}")
+print(f"두수의 차: {x - y}")
+print(f"두수의 곱: {x * y}")
+print(f"두수의 평균: {(x + y) / 2}")
+
+# 큰 수와 작은 수 출력.
+print(f"큰수: {max(x, y)}")
+print(f"작은수: {min(x, y)}")
+
+#연습문제 1번 수학에서 나타나는 수식 파이썬의 수식으로 형변환
+import math
+x = 2
+# x⁴ - 9x³ + x²
+result1 = x**4 - 9 * x**3 + x**2
+print("1번식 답 :",result1)
+
+# 4/3 * π * r³
+r = 5
+result2 = (4 / 3) * math.pi * r**3
+print("2번식 답 :",result2)
+
+# 2a / (-b + √(b² - 4x))
+a = 1
+b = -3
+result3 = (-b + math.sqrt(b**2 - 4 * x)) / (2 * a) 
+print("3번식 답 : ",result3)
+
+'''3장 개별실습
+1. 사용자에게 초값을 입력받음
+2. 이 초값을 시간 분 초로 변환
+3. 결과값 출력'''
+# 초값을 입력 받기
+sec = int(input("초값을 입력해주세요 : "))
+#초값을 시간 분 초 변환하기
+time = sec//3600
+bun = (sec%3600)//60
+remainder = sec%60
+#결과값 출력
+msg = "입력값 " + str(sec)+"은"+ str(time) + "시"+str(bun)+"분"+str(remainder)+"초 입니다"
+print(msg)
+
+랜덤문자기능
+import random       #랜덤 기능
+import string           #문자 집합 제공 모듈
+
+# 비밀번호에 사용할 모든 문자 선언
+char= string.ascii_letters + string.digits      #대소문자 + 숫자 추가문
+
+# 비밀번호 길이 설정 (3글자)
+pwd_length = 3
+
+# random.choices를 사용하여 문자 집합에서 3개를 랜덤으로 선택하고, 합치기
+pwd = ''.join(random.choices(char, k=pwd_length))
+
+print(f"생성된 비밀번호: {pwd}")

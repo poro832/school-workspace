@@ -1,0 +1,156 @@
+10/01파이썬실습
+if문 거북이 그림
+import turtle as t
+t.shape("turtle")
+#펜을 올려서 그림이 그려지게 않게하고 글을 넣는
+t.penup() t.goto(100,100) t.write("거북이가 여기로 오면 양수입니다.") t.goto(100,0)
+t.write("거북이가 여기로 오면 0입니다.") t.goto(100,-100) t.write("거북이가 여기로 오면
+음수입니다.") t.goto(300,150) t.write("거북이가 여기로 오면 짝수입니다.") t.goto(300,50)
+t.write("거북이가 여기로 오면 홀수입니다.")
+#숫자입력문
+t.goto(0,0)
+t.pendown()
+s = t.textinput("","숫자를 입력하시오: ")
+n= int(s)
+#2중 if문을 활용한 양수일시 짝수 홀수로 분류되게 교체
+if n > 0 :
+    if n % 2 == 0:
+        t.goto(100,100)
+        t.goto(300,150)
+    else :
+        t.goto(100,100)
+        t.goto(300,50)
+elif n % 2 == 1:
+    t.goto(-100,0)
+elif n == 0 :
+    t. goto(100,0)
+else :
+    t.goto(100,-100)
+t.done()
+
+'''
+사용자에게 몇각형 그릴건지 입력받아 다각형(3,4,5,6) 그리기 
+'''
+import turtle as t
+t.shape("turtle")
+s = t.textinput("","숫자를 입력하시오: ")
+n= int(s)
+t.penup()
+t.goto(0,-100)
+t.pendown()
+
+if n == 3 :
+    t.goto(0,-100)
+    t.pendown()
+    #삼각형그리기 시작
+    t.left(360/3)
+    t.forward(200)
+    t.left(120)
+    t.forward(200)
+    t.left(120)
+    t.forward(200)
+elif n == 4:
+    t.goto(0,-100)
+    t.pendown()
+    #사각형 그리기 시작
+    t.forward(100)
+    t.right(90)
+    t.forward(100)
+    t.right(90)
+    t.forward(100)
+    t.right(90)
+    t.forward(100)
+elif n == 5:
+    t.goto(0,-100)
+    t.pendown()
+    t.left(360/5)
+    t.forward(100)
+    t.left(360/5)
+    t.forward(100)
+    t.left(360/5)
+    t.forward(100)
+    t.left(360/5)
+    t.forward(100)
+    t.left(360/5)
+    t.forward(100)
+elif n == 6:
+    t.goto(0,-100)
+    t.pendown()
+    t.left(360/6)
+    t.forward(100)
+    t.left(360/6)
+    t.forward(100)
+    t.left(360/6)
+    t.forward(100)
+    t.left(360/6)
+    t.forward(100)
+    t.left(360/6)
+    t.forward(100)
+    t.left(360/6)
+    t.forward(100)
+else : print("수를 잘못 입력하셨습니다")
+t.done()
+
+'''
+사용자에게 이름과 나이와 주소를 입력받아 리스트로 저장
+f.string를 이용해서 각 원소를 출력하는 문
+'''
+name = input("이름을 입력해주세요 : ")
+age = int(input("나이를 입력해주세요 : "))
+add = input("주소를 입력해주세요 : ")
+inform_list = [ ]
+inform_list.append(name)
+inform_list.append(age)
+inform_list.append(add)
+
+print(f"이름 : {inform_list[0]}, 나이 : {inform_list[1]}, 주소 : {inform_list[2]} ")
+
+'''
+교수님 버전
+information = []
+information.append(input("이름 : "))
+nformation.append(int(input("나이 : ")))
+nformation.append(input("주소 : "))
+print(f"이름 : {information[0]}, 나이 : {information[1]}, 주소 : {information[2]} ")
+'''
+'''
+for문을 이용해 사용자에게 몇각형 그릴건지 입력받아 다각형(3,4,5,6) 그리기 
+'''
+import turtle as t
+t.shape("turtle")
+n = int(t.textinput("","몇각형을 그릴지 입력하시오: "))
+angle = 360/n
+#입력받은 값을 분류
+if n == 3 or n == 4 or n == 5 or n == 6: 
+    #도형그리기 시작
+    for  n in range(n):
+        t.forward(100)
+        t.right(angle)
+else : print("수를 잘못 입력하셨습니다")
+t.done()
+'''
+while문을 이용해 사용자에게 몇각형 그릴건지 입력받아 다각형(3,4,5,6) 그리기 
+'''
+import turtle as t
+t.shape("turtle")
+n = 1
+while n != 0:
+    n = int(t.textinput("","몇각형을 그릴지 입력하시오: "))
+    #입력받은 값을 분류
+    if n == 3 or n == 4 or n == 5 or n == 6:
+        t.reset()
+        t.up()
+        t.goto(-100,-100)
+        t.down()
+        angle = 360/n
+        #도형그리기 시작
+        for  n in range(n):
+            t.forward(100)
+            t.right(angle)
+    elif n < 3 or n > 6:
+        print("수를 잘못 입력하셨습니다")
+    else :
+        break
+            
+t.write("프로그램을 종료합니다.")
+t.done()

@@ -1,0 +1,56 @@
+mainpage
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>유어커넥트 메인페이지 테스트</title>
+    <!-- Tailwind CSS CDN 로드 -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- 외부 CSS 파일 링크 -->
+    <link rel="stylesheet" href="style.css"> 
+    <!-- 폰트 로드 -->
+    <link href="https://fonts.googleapis.com/css2?family=Pretendard:wght@400;700;900&display=swap" rel="stylesheet">
+</head>
+<body class="bg-slate-50 text-slate-800">
+
+    <!-- Header -->
+    <header class="bg-white/80 backdrop-blur-md sticky top-0 z-50 border-b border-slate-200">
+        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <!-- 로고 영역 -->
+            <div class="flex items-center space-x-2">
+                <img src="logo.png" alt="YourConnect 로고" class="w-32 h-32 object-cover">
+            </div>
+            <div class="hidden md:flex space-x-28 items-center">
+                <a href="#problem" class="text-slate-600 hover:text-purple-600 font-bold text-lg">AI 화면🖥️</a>
+                <a href="#team" class="text-slate-600 hover:text-purple-600 font-bold text-lg">멘토링🤝🏼</a>
+                <a href="#roadmap" class="text-slate-600 hover:text-purple-600 font-bold text-lg">멤버십🛒  </a>
+                <a href="#roadmap" class="text-slate-600 hover:text-purple-600 font-bold text-lg">헤드 헌팅🏢</a>
+            </div>
+
+            <!-- 로그인 / 회원가입 버튼 -->
+            <div class="flex space-x-3">
+                <a href="#cta" class="bg-purple-600 text-white font-bold py-1 px-2 rounded-lg hover:bg-purple-700 transition-colors">로그인</a>
+                <a href="#cta" class="bg-white border border-purple-600 text-purple-600 font-bold py-1 px-2 rounded-lg hover:bg-purple-50 transition-colors">회원가입</a>
+            </div>
+        </nav>
+    </header>
+    <div id="mini-profile-container" class="container mx-auto px-6 relative z-40">
+    <div class="absolute right-6 top-2 mt-2 w-72 bg-white border border-gray-200 rounded-xl shadow-lg p-4 text-center">
+        <div class="flex items-center justify-center mb-4 space-x-3">
+            <img src="user.png" alt="사용자 아이콘" class="w-10 h-10 rounded-full">
+            <p class="text-lg font-semibold text-slate-800">로그인이 필요합니다.</p>
+        </div>
+        <div class="border-t pt-3 flex justify-around">
+            <a href="#find-id" class="text-sm text-gray-600 hover:text-purple-600">아이디 찾기</a>
+            <div class="w-px bg-gray-300 h-4 self-center"></div> <a href="#find-pw" class="text-sm text-gray-600 hover:text-purple-600">비밀번호 찾기</a>
+        </div>
+    </div>
+</div>
+
+    <main></main>
+    <footer></footer>
+    
+    <script></script>
+</body>
+</html>

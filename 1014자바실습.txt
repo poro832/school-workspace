@@ -1,0 +1,91 @@
+1014자바실습
+package app;
+lib패키지 파일
+package lib;
+//추상클래스 : 객체생성 불가능
+public abstract class Calculator {
+	//추상메소드 + 일반 메소드
+	public abstract int add(int a, int b);
+	public abstract int sub(int a, int b);
+	public abstract double avg(int[] a);
+}
+
+다른 패키지 가져와서 부모지정
+import lib.Calculator;
+
+public class GoodCalc extends Calculator {
+
+	@Override
+	public int add(int a, int b) {
+		// TODO Auto-generated method stub
+		return a+b;
+	}
+
+	@Override
+	public int sub(int a, int b) {
+		// TODO Auto-generated method stub
+		return a - b;
+	}
+
+	@Override
+	public double avg(int[] arr) {
+		// TODO Auto-generated method stub
+		double sum = 0 ,avg;
+		for(int i = 0; i < arr.length; i++)
+			sum += arr[i];
+		avg = sum/arr.length;
+		return sum/arr.length;
+	}
+	
+}
+배열 패키지	
+package sec02;
+
+import java.util.Arrays;
+
+public class ArrayTest {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		int[] arr = {50, 30, 40, 10, 20};
+
+		printArray(arr);
+		Arrays.sort(arr);
+		printArray(arr);
+		System.out.println(Arrays.binarySearch(arr, 1));
+		Arrays.fill(arr, 100);
+		printArray(arr);
+	}
+
+	public static void printArray(int[] arr) {
+		System.out.print("[ ");
+		for(int i=0 ; i< arr.length ; i++)
+		System.out.print(arr[i] + " ");
+		System.out.println("]");
+	}
+}
+스캐너 패키지
+package sec02;
+
+import java.util.Scanner;
+
+public class DivideZeroTest {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		//두 정수 입력 :피젯수, 젯수
+		Scanner s = new Scanner(System.in);
+		int x,y,result =0;
+		System.out.println("피젯수 : ");
+		x=s.nextInt();
+		System.out.println("젯수 : ");
+		y=s.nextInt();
+		try {
+			result = x/y;
+		} catch (ArithmeticException e) {
+			System.out.println("젯수는 0으로 나눌 수 없다");
+		}
+		System.out.println(result);
+	}
+
+}

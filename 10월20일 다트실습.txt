@@ -1,0 +1,157 @@
+10월20일 다트실습
+import 'package:flutter/material.dart';
+
+void main() {
+  runApp(const MyApp());
+}
+
+class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      title: '플러터 연습',
+      debugShowCheckedModeBanner: false,
+      theme: ThemeData(
+        colorScheme: ColorScheme.fromSeed(seedColor: const Color.fromARGB(255, 10, 6, 116)),
+      ),
+      home: const MyHomePage(title: '플러터 홈페이지'),
+    );
+  }
+}
+
+class MyHomePage extends StatefulWidget {
+  const MyHomePage({super.key, required this.title});
+
+  final String title;
+
+  @override
+  State<MyHomePage> createState() => _MyHomePageState();
+}
+
+class _MyHomePageState extends State<MyHomePage> {
+  int _counter = 0;
+
+  void _incrementCounter() {
+    setState(() {
+      _counter++;
+    });
+  }
+  
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        backgroundColor: Theme.of(context).colorScheme.inversePrimary,
+        title: Text(widget.title),
+      ),
+      body: createBody(),
+      floatingActionButton: FloatingActionButton(
+        onPressed: _incrementCounter,
+        tooltip: 'Increment',
+        child: const Icon(Icons.add),
+      ),
+    );
+  }
+}
+
+// 수정된 createBody: Center 내부에 Row를 배치하고 children을 추가함
+Widget createBody() {
+  return Column(
+      children: [ // c1 위젯 사용
+        c1(),
+        c1(),
+        c1(),
+        c2(MainAxisAlignment.center),
+        c4(),
+        c7(),
+      ],
+    );
+}
+
+// c1 위젯은 그대로 사용
+Widget c1() {
+  return Container(
+    padding: const EdgeInsets.only(
+      left: 40,
+      right: 40,
+    ),
+    width: 200,
+    height: 50,
+    color: Colors.blue,
+    margin: const EdgeInsets.all(5),
+    child: Center(child: Text('반가워요')),
+  );
+}
+Widget c2(MainAxisAlignment mainAlig){
+  return Row(  
+  mainAxisAlignment : mainAlig,
+  children : [
+    Expanded(child: Container(
+      height: 40,
+      color: Colors.blue,
+      margin: const EdgeInsets.all(5),
+    ),
+  ),
+    ...List.generate(
+      4,
+      (index) => Container(
+      width: 40,
+      height: 40,
+      color: Colors.blue,
+      margin: const EdgeInsets.all(5),
+    ),
+  ),
+  ],
+  );
+}
+Widget createBlueContainer(){
+  return Container(
+    height: 40,
+    color: Colors.blue,
+    margin: const EdgeInsets.all(5),
+  );
+}
+
+Widget c4(){
+  return Row(
+    children: [
+      Expanded(flex: 1,child : createBlueContainer()),
+      Expanded(flex: 1,child : createBlueContainer()),
+      Expanded(flex: 1,child : createBlueContainer()),
+      
+    ],
+  );
+}
+Widget c7() {
+  return Center(
+    child: Container(
+      width: 300,
+      height: 300,
+    decoration: BoxDecoration( // BoxDecoration을 추가하고
+        color: Colors.blue, // 여기에 색상을 지정합니다.
+        border: Border.all( // Border.all을 사용하여 테두리를 정의합니다.
+          color: Colors.black, // 검은색 선
+          width: 4.0, // 선의 굵기 (원하는 값으로 변경 가능)
+        ),
+      ),
+      child: Column(
+        
+        children: [
+          Expanded(flex: 1, child: Container(color: Colors.red)),
+          Expanded(
+            flex: 1,
+            child: Row(
+              children: [
+                Expanded(flex: 2, child: Container(color: Colors.green)),
+                Expanded(flex: 1, child: Container(color: Colors.orange )),
+                Expanded(flex: 1, child: Container(color: Colors.deepPurple)),
+              ],
+            ),
+          ),
+        ],
+      ),
+    ),
+  );
+}

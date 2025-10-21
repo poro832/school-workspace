@@ -1,0 +1,131 @@
+1021자바실습
+package sec01;
+import javax.swing.*;
+public class FirstWindow {
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		JFrame f = new JFrame();
+		f.setTitle("첫 윈도우 프로그램");
+		f.setSize(300,200);
+		f.setVisible(true);
+	}
+}
+창띄우기 연습
+package sec01;
+import javax.swing.*;
+public class HelloFrame extends JFrame{
+	
+	//생성자
+	HelloFrame(){
+		setTitle("안녕하세요 반가워요 2번째 프로그램이에요");
+		setSize(400,300);
+		setVisible(true);
+	}
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		//객체 생성
+		//HelloFrame h1 = new HelloFrame();
+		new HelloFrame();
+	}
+
+}
+객체 창 띄우기
+package sec02;
+
+import java.awt.BorderLayout;
+
+import javax.swing.*;
+
+public class Frame1 extends JFrame{
+	
+	//생성자 정의
+	Frame1(){
+		setTitle("BorderLayout");
+		setSize(300,300);
+		//버튼컴포넌트 생성(JButton)
+		JButton b1 = new JButton("North");
+		JButton b2 = new JButton("South");
+		JButton b3 = new JButton("East");
+		JButton b4 = new JButton("West");
+		JButton b5 = new JButton("Center");
+		add(b1,BorderLayout.NORTH);
+		add(b2,BorderLayout.SOUTH);
+		add(b3,BorderLayout.EAST);
+		add(b4,BorderLayout.WEST);
+		add(b5,BorderLayout.CENTER);
+		
+		//윈도우 보이기
+		setVisible(true);
+	}
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		//윈도우 생성
+		new Frame1();
+	}
+
+}
+Border 레이아웃
+package sec02;
+import java.awt.*;
+import javax.swing.*;
+
+public class Frame2 extends JFrame{
+	
+	//생성자 정의
+	Frame2(){
+		setTitle("FlowLayout");
+		setSize(300,300);
+		//레이아웃 객체 생성
+		FlowLayout f1 = new FlowLayout();
+		setLayout(f1);
+		//setLayout(new FlowLayout());//중요
+		//버튼컴포넌트 생성(JButton)
+		JButton b1 = new JButton("봄");
+		b1.setBackground(Color.pink);
+		//컴포넌트 부착
+		add(b1);
+		add(new JButton("여름"));
+		add(new JButton("가을"));
+		add(new JButton("겨울"));
+		//윈도우 보이기
+		setVisible(true);
+	}
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		//윈도우 생성
+		new Frame2();
+	}
+
+}
+Flow레이아웃
+package sec02;
+import java.awt.*;
+import javax.swing.*;
+
+public class Frame3 extends JFrame{
+	
+	//생성자 정의
+	Frame3(){
+		String[] name = {"지수","제니","로제","리사"};
+		setTitle("GridLayoutTest");
+		setSize(300,150);
+		//레이아웃 객체 생성
+		setLayout(new  GridLayout(2,2));
+		//컴포넌트 부착
+		for(int i=0; i < 4; i++) {
+			add(new JButton(name[i]));
+		}
+		//윈도우 보이기
+		setVisible(true);
+	}
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		//윈도우 생성
+		new Frame3();
+	}
+
+}
+Grid 레이아웃

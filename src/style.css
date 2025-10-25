@@ -1,0 +1,439 @@
+/* style.css */
+
+/* --- 폰트 및 기본 스타일 --- */
+body { 
+    font-family: 'Pretendard', sans-serif; 
+    margin: 0;
+    padding: 0;
+    background-color: #f8fafc; /* bg-slate-50 */
+    color: #334155; /* text-slate-800 */
+}
+
+/* --- 헤더 (Header) --- */
+.header-main {
+    background-color: rgba(255, 255, 255, 0.8); /* bg-white/80 */
+    backdrop-filter: blur(8px); /* backdrop-blur-md */
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    border-bottom: 1px solid #e2e8f0; /* border-b border-slate-200 */
+}
+.nav-container {
+    max-width: 1280px; /* container */
+    margin-left: auto;
+    margin-right: auto; /* mx-auto */
+    padding: 1rem 1.5rem; /* px-6 py-4 */
+    display: flex;
+    justify-content: space-between; /* justify-between */
+    align-items: center; /* items-center */
+}
+
+/* --- 로고 영역 --- */
+.logo-area {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem; /* space-x-2 */
+}
+.logo-img {
+    width: 8rem; /* w-32 (128px) */
+    height: 8rem; /* h-32 */
+    object-fit: cover;
+}
+
+/* --- 카테고리 메뉴 --- */
+.menu-category-group {
+    display: none; /* hidden */
+    align-items: center;
+    gap: 8rem; /* space-x-32 (128px) */
+}
+.menu-category-group a {
+    color: #475569; /* text-slate-600 */
+    font-weight: 700; /* font-bold */
+    font-size: 1.125rem; /* text-lg (18px) */
+    text-decoration: none;
+    transition: color 0.15s;
+}
+.menu-category-group a:hover,
+.hover-purple:hover {
+    color: #9333EA; /* hover:text-purple-600 */
+}
+
+/* --- 미디어 쿼리 (md:flex 처리) --- */
+@media (min-width: 768px) {
+    .menu-category-group {
+        display: flex;
+    }
+}
+
+/* --- 로그인 / 회원가입 버튼 --- */
+.auth-group {
+    display: flex;
+    gap: 0.75rem; /* space-x-3 */
+}
+.btn {
+    font-weight: 700;
+    padding: 0.25rem 0.5rem; /* py-1 px-2 */
+    border-radius: 0.5rem; /* rounded-lg */
+    transition: background-color 0.15s, border-color 0.15s, color 0.15s;
+    text-decoration: none;
+    font-size: 0.875rem; /* text-sm */
+}
+.btn-primary {
+    background-color: #9333EA; /* bg-purple-600 */
+    color: white;
+    border: 1px solid transparent;
+}
+.btn-primary:hover {
+    background-color: #7e22ce; /* hover:bg-purple-700 */
+}
+.btn-secondary {
+    background-color: white; /* bg-white */
+    border: 1px solid #9333EA; /* border border-purple-600 */
+    color: #9333EA; /* text-purple-600 */
+}
+.btn-secondary:hover {
+    background-color: #f5f3ff; /* hover:bg-purple-50 */
+}
+
+/* --- 미니 프로필 카드 --- */
+.profile-container {
+    max-width: 1280px; /* container */
+    margin-left: auto;
+    margin-right: auto; /* mx-auto */
+    padding-left: 1.5rem;
+    padding-right: 1.5rem; /* px-6 */
+    position: relative;
+    z-index: 40;
+}
+.mini-profile-card {
+    position: absolute;
+    right: 1.5rem; /* right-6 */
+    top: 0.5rem; /* top-2 (px) */
+    margin-top: 0.5rem; /* mt-2 (px) */
+    width: 18rem; /* w-72 (288px) */
+    background-color: white;
+    border: 1px solid #e5e7eb; /* border border-gray-200 */
+    border-radius: 0.75rem; /* rounded-xl */
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05); /* shadow-lg */
+    padding: 1rem; /* p-4 */
+    text-align: center;
+}
+.profile-content {
+    display: flex;
+    align-items: center; /* items-center */
+    justify-content: center; /* justify-center */
+    margin-bottom: 1rem; /* mb-4 */
+    gap: 0.75rem; /* space-x-3 */
+}
+.user-icon {
+    width: 2.5rem; /* w-10 (40px) */
+    height: 2.5rem; /* h-10 */
+    border-radius: 9999px; /* rounded-full */
+}
+.profile-text {
+    font-size: 1.125rem; /* text-lg */
+    font-weight: 600; /* font-semibold */
+    color: #334155; /* text-slate-800 */
+}
+.profile-footer {
+    border-top: 1px solid #e5e7eb; /* border-t pt-3 */
+    padding-top: 0.75rem;
+    display: flex;
+    justify-content: space-around;
+}
+.footer-link {
+    font-size: 0.875rem; /* text-sm */
+    color: #6b7280; /* text-gray-600 */
+    text-decoration: none;
+    transition: color 0.15s;
+}
+.footer-link:hover {
+    color: #9333EA; /* hover:text-purple-600 */
+}
+.divider {
+    width: 1px; /* w-px */
+    background-color: #d1d5db; /* bg-gray-300 */
+    height: 1rem; /* h-4 */
+    align-self: center;
+}   
+/* 전체 페이지 컨테이너 */
+.careerbuddy-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 30px 20px;
+  background-color: #f5f6f8;
+  font-family: "Noto Sans KR", sans-serif;
+}
+
+/* 타이틀 */
+.careerbuddy-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #2d3748;
+  margin-bottom: 25px;
+  text-align: left;
+}
+
+/* 상단 네비 버튼 */
+.careerbuddy-nav {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 30px;
+}
+
+.careerbuddy-nav button {
+  background-color: #fff;
+  border: 1px solid #cbd5e0;
+  border-radius: 6px;
+  padding: 8px 14px;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.careerbuddy-nav button:hover {
+  background-color: #2b6cb0;
+  color: #fff;
+  border-color: #2b6cb0;
+}
+
+/* 멘토 카드 목록 */
+.mentor-list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* 개별 카드 */
+.mentor-card {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  background-color: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 15px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+/* 이미지 */
+.mentor-img {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+/* 정보 섹션 */
+.mentor-info h3 {
+  font-size: 1.1rem;
+  margin-bottom: 5px;
+  color: #2d3748;
+}
+
+.mentor-title {
+  font-weight: 600;
+  font-size: 0.95rem;
+  color: #4a5568;
+}
+
+.mentor-desc {
+  font-size: 0.9rem;
+  color: #718096;
+  margin-bottom: 8px;
+}
+
+/* 버튼 */
+.mentor-btn {
+  background-color: #3182ce;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 6px 14px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.mentor-btn:hover {
+  background-color: #2b6cb0;
+}
+body {
+  margin: 0;
+  background-color: #f5f6f8;
+  font-family: "Noto Sans KR", sans-serif;
+}
+
+/* 전체 앱 */
+.app-container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* 헤더 */
+.app-header {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 15px;
+  margin-bottom: 25px;
+}
+
+.app-header h1 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #2d3748;
+}
+
+/* 네비게이션 */
+.main-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.main-nav button {
+  background-color: #fff;
+  border: 1px solid #cbd5e0;
+  border-radius: 6px;
+  padding: 8px 16px;
+  cursor: pointer;
+  font-size: 0.95rem;
+  transition: all 0.2s ease;
+}
+
+.main-nav button:hover {
+  background-color: #2b6cb0;
+  color: white;
+}
+
+.main-nav .active {
+  background-color: #3182ce;
+  color: white;
+  border-color: #3182ce;
+}
+
+/* 각 탭 영역 */
+.tab-container {
+  background-color: white;
+  border-radius: 12px;
+  padding: 25px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+}
+
+.home-tab h2,
+.ai-tab h2,
+.mentor-tab h2,
+.message-tab h2,
+.profile-tab h2 {
+  color: #2d3748;
+  font-size: 1.5rem;
+  margin-bottom: 12px;
+}
+
+.home-tab p,
+.ai-tab p,
+.message-tab p {
+  color: #4a5568;
+  font-size: 1rem;
+}
+
+/* AI 면접 탭 */
+.ai-input {
+  width: 100%;
+  min-height: 100px;
+  margin: 15px 0;
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #cbd5e0;
+  font-size: 1rem;
+  resize: vertical;
+}
+
+.primary-btn {
+  background-color: #3182ce;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 8px 16px;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.primary-btn:hover {
+  background-color: #2b6cb0;
+}
+
+/* 멘토 탭 */
+.mentor-list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.mentor-card {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  background-color: #f9fafb;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 15px;
+}
+
+.mentor-img {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.mentor-title {
+  font-weight: 600;
+  color: #4a5568;
+}
+
+.mentor-desc {
+  color: #718096;
+  font-size: 0.9rem;
+  margin-bottom: 8px;
+}
+
+.mentor-btn {
+  background-color: #3182ce;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 6px 14px;
+  cursor: pointer;
+}
+
+.mentor-btn:hover {
+  background-color: #2b6cb0;
+}
+
+/* 메시지 탭 */
+.message-box {
+  background-color: #edf2f7;
+  border-radius: 8px;
+  padding: 15px;
+  margin-top: 10px;
+  color: #4a5568;
+}
+
+/* 프로필 탭 */
+.profile-card {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  background-color: #f9fafb;
+  border-radius: 12px;
+  padding: 15px;
+  border: 1px solid #e2e8f0;
+}
+
+.profile-card img {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+}

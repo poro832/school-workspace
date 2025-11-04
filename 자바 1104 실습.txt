@@ -1,0 +1,198 @@
+자바 1104 실습
+package sec04;
+import java.awt.*;
+import java.awt.event.*;
+import javax.swing.*;
+
+//1. 독립된 클래스 정의
+//코드 작성
+class MyGUI1 implements ActionListener{
+
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		// TODO Auto-generated method stub
+		//실행할 코드
+		//System.out.println(e);
+		System.out.println("확인버튼을 눌렀습니다");
+		//setTitle("확인 버튼을 눌렀습니다");
+		JButton btn=(JButton) e.getSource();
+		//btn.setText("OK");
+		if(btn.getText().equals("확인"))
+			btn.setText("OK");
+		else
+			btn.setText("확인");
+	}
+}
+
+class MyGUI2 implements ActionListener{
+
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		// TODO Auto-generated method stub
+		//실행할 코드
+		//System.out.println(e);
+		System.out.println("취소버튼을 눌렀습니다");
+		//setTitle(" 버튼을 눌렀습니다");	
+		JButton btn=(JButton) e.getSource();
+		//btn.setText("");
+		if(btn.getText().equals("취소"))
+			btn.setText("Cancle");
+		else
+			btn.setText("취소");
+		
+	}
+}
+public class EventTest1 extends JFrame{
+	
+	EventTest1() {
+		setTitle("액션 이벤트 리스너 예제");
+		setLayout(new FlowLayout());
+		JButton btn1 = new JButton("확인");
+		JButton btn2 = new JButton("취소");
+
+
+		add(btn1);
+		add(btn2);
+		// 2. 리스너 등록
+		btn1.addActionListener(new MyGUI1());
+		btn2.addActionListener(new MyGUI2());
+
+		setSize(300, 150);
+		setVisible(true);
+	}
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		new EventTest1 ();
+	}
+
+}
+
+package sec04;
+import java.awt.*;
+import java.awt.event.*;
+import javax.swing.*;
+//내부 클래스로 Action 이벤트 리스너 만들기
+
+
+public class EventTest2 extends JFrame{
+	
+	//멤버 변수 선언
+	JButton btn1,btn2,btn3;
+	EventTest2() {
+		setTitle("액션 이벤트 리스너 예제");
+		setLayout(new FlowLayout());
+
+		btn1 = new JButton("확인");
+		btn2 = new JButton("취소");
+		btn3 = new JButton("배경 변경");
+		add(btn1);
+		add(btn2);
+		add(btn3);
+		// 2. 리스너 등록
+		btn1.addActionListener(new MyGUI());
+		btn2.addActionListener(new MyGUI2());
+		btn3.addActionListener(new MyGUI3());
+		setSize(300, 150);
+		setVisible(true);
+	}
+	//내부 클래스 정의
+	class MyGUI implements ActionListener{
+
+		@Override
+		public void actionPerformed(ActionEvent e) {
+			// TODO Auto-generated method stub
+			btn1.setText("OK");
+			setTitle("사용자가 OK버튼을 눌렀습니다.");
+		}
+		
+	}
+	class MyGUI2 implements ActionListener{
+
+		@Override
+		public void actionPerformed(ActionEvent e) {
+			// TODO Auto-generated method stub
+			btn2.setText("Cancle");
+			setTitle("사용자가 Cancle버튼을 눌렀습니다.");
+		}
+		
+	}
+	class MyGUI3 implements ActionListener{
+
+		@Override
+		public void actionPerformed(ActionEvent e) {
+			// TODO Auto-generated method stub
+			btn1.setBackground(Color.pink);
+			btn2.setBackground(Color.cyan);
+		}
+		
+	}
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		new EventTest2 ();
+	}
+
+}
+
+package sec04;
+import java.awt.*;
+import java.awt.event.*;
+import javax.swing.*;
+public class MyMouseTest1 extends JFrame{
+	//멤버 변수
+	JLabel lbl;
+	
+	//생성자 정의
+	MyMouseTest1(){
+		//JLabel 컴포넌트 생성
+		setLayout(new FlowLayout());
+		lbl = new JLabel("오늘 뭐 먹지?");
+		lbl.setForeground(Color.pink);	//전경색 : 테두리색, 글꼴색
+		add(lbl);
+		//2. 마우스 리스너 등록하기
+		addMouseListener(new My1());
+		setSize(500,500);
+		setVisible(true);
+	}
+	//내부 리스너 클래스 정의
+	class My1 implements MouseListener {
+
+		@Override
+		public void mouseClicked(MouseEvent e) {
+			// TODO Auto-generated method stub
+			
+		}
+
+		@Override
+		public void mousePressed(MouseEvent e) {
+			// TODO Auto-generated method stub
+			//System.out.println(e.getX()+","+e.getY());
+			int x = e.getX();
+			int y = e.getY();
+			lbl.setLocation(x,y);
+		}
+
+		@Override
+		public void mouseReleased(MouseEvent e) {
+			// TODO Auto-generated method stub
+			
+		}
+
+		@Override
+		public void mouseEntered(MouseEvent e) {
+			// TODO Auto-generated method stub
+			
+		}
+
+		@Override
+		public void mouseExited(MouseEvent e) {
+			// TODO Auto-generated method stub
+			
+		}
+		
+	}
+	
+	public static void main(String[] args) {
+		new MyMouseTest1();
+	}
+}

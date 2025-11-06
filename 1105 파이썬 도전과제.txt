@@ -1,0 +1,104 @@
+1105 파이썬 도전과제
+import random as r
+#질문 함수
+def problem():
+    a = r.randint(1, 10)
+    b = r.randint(1, 10)
+    op = r.choice(['+', '-', 'x', '/'])
+
+    if op == '+':
+        dap = a + b
+        question = f"{a} + {b}"
+    elif op == '-':
+        dap = a - b
+        question = f"{a} - {b}"
+    elif op == 'x':
+        dap = a * b
+        question = f"{a} x {b}"
+    else:
+        dap = a // b
+        question = f"{a} / {b}"
+    return question, dap
+#문제 제출 및 정답 확인 문
+def ask_correct(question, dap):
+    """정답을 맞힐 때까지 반복해서 묻기"""
+    while True:
+        print(f"문제: {question} = ?")
+        print("-" * 30)
+        user_ans = int(input("답을 입력하세요: "))
+        if user_ans == dap:
+            print("정답입니다!")
+            return
+        else:
+            print("오답입니다. 다시 한번 시도해 보세요.")
+            
+while True:
+    question, dap = problem()
+    ask_correct(question, dap)
+    print("-" * 30)
+    cont = input("산수 퀴즈를 계속 하시겠습니까(yes or no) ? ")
+    if cont != 'yes':
+        print("프로그램이 종료되었습니다")
+        break
+도전문제 2번
+import random as r
+# 번호 생성 함수
+def get_lotto():
+    nums = []
+    while len(nums) < 10:
+        n = r.randint(1, 100)
+        if n not in nums:
+            nums.append(n)
+    return nums
+#번호 최고값 찾기 함수
+def get_max_num(num_list):
+    max_num = num_list[0]
+    i = 1
+    while i < len(num_list):
+        if num_list[i] > max_num:
+            max_num = num_list[i]
+        i += 1
+    return max_num
+lotto = get_lotto()
+high = get_max_num(lotto)
+print(f"생성된 숫자: {lotto}")
+print(f"최고값: {high}")
+도전문제3번
+import turtle as t
+import random as r
+t.shape("turtle")
+def draw_polygon(shape, size, x, y): #
+    t.penup()
+    if shape == 0:
+        t.goto(x,y - size)  # 원 중심 맞추기
+    else:
+        t.goto(x - size / 2, y + size / 2)
+    t.pendown()
+
+    # 랜덤 RGB 색상 지정
+    t.color(r.random(), r.random(), r.random())
+    t.begin_fill()
+    if shape == 0:
+        t.circle(size)
+        print(f"원 그리기 완료 (크기: {size})")
+    elif shape == 7:
+        print("7각형은 지원하지 않습니다.")
+    elif 3 <= shape <= 8:
+        angle = 360 / shape
+        for _ in range(shape):
+            t.forward(size)
+            t.right(angle)
+        print(f"{shape}각형 그리기 완료 (크기: {size})")
+    else:
+        print("지원하지 않는 도형입니다.")
+    t.end_fill()
+# 다각형 여러 개 그리기
+for _ in range(r.randint(5, 10)):  # 다각형 그리는 횟수 랜덤 (5~10개)
+    shape = r.choice([0, 3, 4, 5, 6, 8])  # 7 제외
+    size = r.randint(30, 100)
+    x = r.randint(-200, 200)
+    y = r.randint(-200, 200)
+
+    draw_polygon(shape, size, x, y)
+
+t.done()

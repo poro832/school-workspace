@@ -1,0 +1,99 @@
+1111자바 실습
+package sec01;
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.*;
+
+public class ImageViewer extends JFrame {
+
+    JButton btnprev, btnnext,btnfirst,btnlast;
+    ImageIcon[] image;
+    JLabel imageLabel;
+    JLabel captionLabel;
+    int cnt;
+    String[] exp;
+
+    ImageViewer() {
+        setTitle("랜선으로 떠나는 여행");
+        Font f = new Font("", Font.BOLD, 30);
+        JPanel panel = new JPanel();
+        btnprev = new JButton("<<");
+        btnnext = new JButton(">>");
+        btnfirst = new JButton("|<");
+        btnlast = new JButton(">|");
+        btnprev.setFont(f);
+        btnnext.setFont(f);
+        btnfirst.setFont(f);
+        btnlast.setFont(f);
+        image = new ImageIcon[4];
+        exp = new String[] {
+            "영국 - 빅뱅",
+            "독일 - 알프스 산맥",
+            "이탈리아 - 트레비 분수",
+            "프랑스 - 에펠탑"
+        };
+        for (int i = 0; i < image.length; i++) {
+            String path = "image/img" + i + ".png";
+            image[i] = new ImageIcon(path);
+        }
+        cnt = 0;
+        imageLabel = new JLabel(image[cnt]);
+        captionLabel = new JLabel(exp[cnt], SwingConstants.CENTER);
+        captionLabel.setFont(new Font("", Font.PLAIN, 16));
+        captionLabel.setBorder(BorderFactory.createEmptyBorder(8, 8, 8, 8));
+        class Preview implements ActionListener {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if (cnt > 0)
+                	 cnt--;
+                else
+                	JOptionPane.showMessageDialog(null, "이전 그림 없음","경고",JOptionPane.WARNING_MESSAGE);
+                imageLabel.setIcon(image[cnt]);
+                captionLabel.setText(exp[cnt]);
+            }
+        }
+        class Next implements ActionListener {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if (cnt < 4)
+                	cnt++;
+                else
+                	JOptionPane.showMessageDialog(null, "다음 그림 없음","경고",JOptionPane.WARNING_MESSAGE);
+                imageLabel.setIcon(image[cnt]);
+                captionLabel.setText(exp[cnt]);
+            }
+        }
+        class First implements ActionListener {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                imageLabel.setIcon(image[0]);
+                captionLabel.setText(exp[0]);
+            }
+        }
+        class Last implements ActionListener {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                imageLabel.setIcon(image[3]);
+                captionLabel.setText(exp[3]);
+            }
+        }
+        btnprev.addActionListener(new Preview());
+        btnnext.addActionListener(new Next());
+        btnfirst.addActionListener(new First());
+        btnlast.addActionListener(new Last());
+        add(imageLabel,"Center");
+        add(captionLabel,"North"); // 캡션을 이미지 아래로 표시
+        panel.add(btnfirst);
+        panel.add(btnprev);
+        panel.add(btnnext);
+        panel.add(btnlast);
+        add(panel,"South"); // 버튼을 상단으로 이동 (원하면 SOUTH로 변경)
+
+        setSize(500, 550);
+        setVisible(true);
+    }
+
+    public static void main(String[] args) {
+        new ImageViewer();
+    }
+}

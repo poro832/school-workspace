@@ -1,0 +1,69 @@
+1118자바 실습
+벡터
+package sec01;
+import java.util.Vector;
+public class VectorTest {
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		//벡터 객체 생성
+		Vector<Integer> v = new Vector<>();
+		//추가
+		v.add(100);
+		v.add(90);
+		v.add(80);
+		v.add(75);
+		v.add(70);
+		//전체조회
+		System.out.println(v);
+		//전체합계
+		int sum = 0;
+		for(int i = 0; i < v.size(); i++) {
+			sum += v.get(i);
+		}
+		System.out.println(sum);
+		//전체조회
+		/*
+		System.out.println(v);
+		v.add(1,80);
+		System.out.println(v);
+		System.out.println(v.get(0));
+		//삭제
+		v.remove(1);
+		System.out.println(v);
+		*/
+		//전체합계
+	}
+
+}
+해쉬
+package sec03;
+import java.util.*;
+public class HashMapTest {
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		HashMap<String,String> dic = new HashMap<>();
+		String key;
+		dic.put("apple", "사과");
+		dic.put("grape", "포도");
+		dic.put("orange", "오렌지");
+		dic.put("mango", "망고");
+		Scanner s = new Scanner (System.in);
+		for(String k : dic.keySet()) {
+			String v = dic.get(k);
+			System.out.println(k +" : " + v);
+		}
+		while(true) {
+			System.out.println("단어입력: ");
+			key = s.next();
+			if(key.equals("quit"))break;
+			String value = dic.get(key);
+			if(!dic.containsKey(key))
+				System.out.println("없는 단어입니다.");
+			else {
+				System.out.println("뜻 : "+value);
+			}
+		}
+		s.close();
+	}
+
+}

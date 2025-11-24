@@ -1,0 +1,57 @@
+플러터 1124실습
+스플래쉬 페이지
+import 'package:dantol_market_app/common/compenents/getx_listener.dart';
+import 'package:dantol_market_app/common/controller/data_load_controller.dart';
+import 'package:dantol_market_app/splash/enum/step_type.dart';
+import 'package:flutter/material.dart';
+import '../controller/splash_controller.dart';
+import 'package:get/get.dart';
+
+class SplashPage extends GetView<SplashController>{
+  const SplashPage({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: Center(
+        child : GetxListener<bool>(
+          listen: (bool value){
+            if(value){
+              controller.changeStep(StepType.authCheck);
+            }
+          },
+        stream: Get.find<DataLoadController>().isDataLoad,
+        child : GetxListener<StepType>(
+          initCall:(){
+            controller.loadStep(StepType.dataLoad);
+          },
+          listen: (StepType? value){
+            if(value == null) return;
+            switch(value){
+              case StepType.init:
+              case StepType.dataLoad:
+              Get.find<DataLoadController>().loadData();
+              break;
+              case StepType.authCheck:
+              print('authCheck');
+              break;
+            } 
+            },
+        stream: controller.loadStep,
+        child: Obx(
+           (){
+            return Text(
+            '${controller.loadStep.value.name}중 입니다.',
+            style: const TextStyle(color : Colors.white),
+          );
+          },
+        ),
+      ),
+      ),
+      ),
+      floatingActionButton: FloatingActionButton(onPressed:   (){
+        controller.changeStep(StepType.authCheck);
+      }),
+    );
+  }
+}

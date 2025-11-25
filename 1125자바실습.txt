@@ -1,0 +1,46 @@
+1125자바실습
+package sec03;
+import java.io.*;
+import java.util.*;
+public class StudentTest {
+	public static void main(String[] args) throws IOException {
+		FileReader fin = new FileReader("movie.csv");
+		BufferedReader br = new BufferedReader(fin);
+		String str, name,dept,price;
+		double sum = 0;
+		String key, value;
+		// 키(이름) 값(학과)
+		HashMap<String, String> dic = new HashMap<>();
+		Scanner s = new Scanner(System.in);
+		System.out.println(br.readLine()); // 제목컬럼 읽기
+		// ** 코드 작성 : 파일내용 -> 해시맵에 추가
+		while(true) {
+			str = br.readLine();
+			if(str==null)break;
+			System.out.println(str);
+			String arr[] = str.split(",");
+			name = arr[1];
+			dept = arr[3];
+			price = arr[5];
+			sum += Double.parseDouble(price);
+			dic.put(name.trim(), dept.trim());
+		}
+		System.out.println("=======================");
+		System.out.printf("총 수익 : %.2f\n, 조",sum);
+		// 전체조회 : 
+		for (String k : dic.keySet())
+			System.out.println(k + " : " + dic.get(k));
+		// 검색기능 :
+		while (true) {
+			System.out.print("찾고 싶은 영화 이름은? ");
+			key = s.next();
+			if (key.equals("q"))break;
+			if(!dic.containsKey(key))
+				System.out.println("not Found");
+			else
+				System.out.println("영화태그 : "+dic.get(key));
+		}
+
+	}
+
+}

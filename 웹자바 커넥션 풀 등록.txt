@@ -1,0 +1,12 @@
+웹자바 커넥션 풀 등록
+<Resource
+        name="jdbc/mariadb"
+        auth="Container"
+        type="javax.sql.DataSource"
+        driverClassName="org.mariadb.jdbc.Driver"
+        url="jdbc:mariadb://localhost:3309/jspdb"
+        username="jsp"
+        password="1234"
+        maxTotal="8"
+        maxWaitMillis="-1"
+/> 
